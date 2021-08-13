@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}register{% endblock %}
+{% block content %}
+<div class="container" style="margin-top:60px">
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- <img src="{% static 'img/telecon-systems-logo-final.jpg' %}" class="img-responsive" /> -->
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <strong> Registration </strong>
+                </div>
+                <div class="panel-body">
+                    <form role="form" action="{% url 'register' %}" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            {% if message %}
+                            <span style="color:red;font-weight:bold">{{message}}</span>
+                            {% endif %}
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+                                    <div class="form-group">
+                                        <div class="mt-3">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label class="mt-4" for="email">First Name</label>
+                                                    <input class="form-control" placeholder="first name"
+                                                        name="first_name" type="text" autofocus required>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="mt-4" for="email">Last Name</label>
+                                                    <input class="form-control" placeholder="last name" name="last_name"
+                                                        type="text" autofocus required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <label class="mt-4" for="email">Email Address</label>
+                                            <input class="form-control" placeholder="Email Id" name="email" type="email"
+                                                autofocus required>
+                                        </div>
+                                        <div class="mt-3">
+                                            <label for="contact_number">Contact Number</label>
+                                            <input class="form-control" maxlength="10" placeholder="contact_number"
+                                                name="contact_number" type="number" value="" required>
+                                        </div>
+                                        <div class="mt-3">
+                                            <label for="date_of_birth">Date of birth</label>
+                                            <input class="form-control" placeholder="date_of_birth" name="date_of_birth"
+                                                type="date" value="" required>
+                                        </div>
+                                        <div class="mt-3">
+                                            <label for="password">Password</label>
+                                            <input class="form-control" placeholder="Password" name="password"
+                                                type="password" value="" required>
+                                        </div>
+                                        <div class="mt-3">
+                                            <label for="password1">Confirm Password</label>
+                                            <input class="form-control" placeholder="Confirm Password" name="password1"
+                                                type="password" value="" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </fieldset>
+                        <div class="col-md-6 offset-md-4">
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
